@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+    <link rel="dns-prefetch" href="//changyan.sohu.com">
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>[无图]Aria2+web界面 另加OneIndex上传（可能上传不了） | In Huntersxy</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="https://q.qlogo.cn/headimg_dl?dst_uin=1833505972&spec=640&img_type=jpg"><link rel="apple-touch-icon" sizes="180x180" href="https://q.qlogo.cn/headimg_dl?dst_uin=1833505972&spec=640&img_type=jpg"><link rel="icon" typt="image&#x2F;png" sizes="192x192" href="https://q.qlogo.cn/headimg_dl?dst_uin=1833505972&spec=640&img_type=jpg"><link rel="icon" typt="image&#x2F;png" sizes="32x32" href="https://q.qlogo.cn/headimg_dl?dst_uin=1833505972&spec=640&img_type=jpg"><link rel="icon" typt="image&#x2F;png" sizes="16x16" href="https://q.qlogo.cn/headimg_dl?dst_uin=1833505972&spec=640&img_type=jpg">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/spectre.css/0.5.3/spectre.min.css"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: green;
+    }
+
+    a:active, a:focus, a:hover {
+        color: green;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: green;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: purple;
+    }
+
+    .avatar {
+        background: purple;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: purple;
+    }
+
+    .navbar-link:hover {
+        color: purple;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: purple;
+        border-color: purple;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: purple;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sukkaw/hexo-theme-suka@1.3.0/source/css/highlight/[theme-name].min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="In Huntersxy"><meta name="msapplication-starturl" content="https://rbqhub.top"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="In Huntersxy"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="[无图]Aria2+web界面 另加OneIndex上传（可能上传不了） | In Huntersxy"><meta property="og:site_name" content="In Huntersxy"><meta property="og:type" content="article"><meta property="og:url" content="https://rbqhub.top/2021/05/02/Untitled/"><meta property="og:locale" content="zh-CN"><meta name="description" content="我为什么会写这篇文章？昨天晚上折腾了一个晚上的离线下载并上传，但是对于我这种小白很不友好,一键脚本都是debian 6,7的，没有关于Centos的，和网络的教程一步步操作，也会败在一些细节上面，但是，最后我还是做好了！为了方便广大网友，我决定整理一下！不要和我说撞某人的车什么的emm，我根本就没有找到这一方面的文章。当然我希望有大佬可以做出一键的脚本。 ** 前排提醒，以下文章的操作不具有简洁性 - Huntesrxy - In Huntersxy"><meta property="article:published_time" content="2021-05-02T10:39:00.000Z"><meta property="article:modified_time" content="2021-05-02T10:41:58.921Z"><meta property="og:updated_time" content="2021-05-02T10:41:58.921Z"><meta property="article:author" content="Huntesrxy"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://rbqhub.top/2021/05/02/Untitled/">
+
+    <meta name="generator" content="Hexo 5.4.2">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://rbqhub.top/2021/05/02/Untitled/",
+    "@type": "BlogPosting",
+    "logo": "https://q.qlogo.cn/headimg_dl?dst_uin=1833505972&amp;spec=640&amp;img_type=jpg",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://rbqhub.top/2021/05/02/Untitled/"
+    },
+    "headline": "[无图]Aria2+web界面 另加OneIndex上传（可能上传不了） | In Huntersxy",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://q.qlogo.cn/headimg_dl?dst_uin=1833505972&amp;spec=640&amp;img_type=jpg"
+    },
+    
+    "datePublished": "2021-05-02T10:39:00.000Z",
+    "dateModified": "2021-05-02T10:41:58.921Z",
+    "author": {
+        "@type": "Person",
+        "name": "Huntesrxy",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://q.qlogo.cn/headimg_dl?dst_uin=1833505972&amp;spec=640&amp;img_type=jpg"
+        },
+        "description": "界归之地"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "In Huntersxy",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://q.qlogo.cn/headimg_dl?dst_uin=1833505972&amp;spec=640&amp;img_type=jpg"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://rbqhub.top/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "",
+    "description": "我为什么会写这篇文章？昨天晚上折腾了一个晚上的离线下载并上传，但是对于我这种小白很不友好,一键脚本都是debian 6,7的，没有关于Centos的，和网络的教程一步步操作，也会败在一些细节上面，但是，最后我还是做好了！为了方便广大网友，我决定整理一下！不要和我说撞某人的车什么的emm，我根本就没有找到这一方面的文章。当然我希望有大佬可以做出一键的脚本。 ** 前排提醒，以下文章的操作不具有简洁性 - Huntesrxy - In Huntersxy"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">In Huntersxy</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                界归之地
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=In Huntersxy&url=https://rbqhub.top&pic=https://q.qlogo.cn/headimg_dl?dst_uin=1833505972&amp;spec=640&amp;img_type=jpg&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=In Huntersxy&url=https://rbqhub.top&via=Huntesrxy" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://rbqhub.top" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=https://rbqhub.top" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://rbqhub.top&title=[无图]Aria2+web界面 另加OneIndex上传（可能上传不了）" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=In Huntersxy&title=[无图]Aria2+web界面 另加OneIndex上传（可能上传不了）&summary=界归之地&pics=https://q.qlogo.cn/headimg_dl?dst_uin=1833505972&amp;spec=640&amp;img_type=jpg&url=https://rbqhub.top" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=https://rbqhub.top&text=[无图]Aria2+web界面 另加OneIndex上传（可能上传不了）" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAAAAAB0L9x7AAABhUlEQVR42u3aSRKDMAxEUe5/6WRLuVCrhYkjU58NZCjzFgINcHwabAcIECC2QBxisxY6/W88ztYF0RdRXfx8kmgda10QrRFj4Fzto8BzsON6IN6BGAFXnyM8iHchrhaIEtXPAhPEckSUaLKblcI9lkVBLEeognRm/1i1DWIpwmluomao0iRNdeUgliJUIKngjZKXsx6I3ohK8+s2PCqgw5sViFaIqyLFaX6ywkZ9D6IvIgpE1cBkhW9WNIPojagEmjqJ0zSnCQxEK4RKaHLQYSS8chYF0QKhEphz81KJsHx1gGiDUMdRQrobxCD6IrKCpToYcwaxIPZAuAM056GLAwPRG+EUrurm4xTF1vQORDtEJWG5zY6dwEC0Q7gvX1SLWzloAdEScSdxqcCL/gtiH4T1YN1scsrNM4i2CPfFHqd5zoqZ6beLQCxDuE1tJVGlg3cQ2yLcwVqlaQaxN8INTOf3n18dIB5DqCGHMzR3BiYg9kHMDssz5HS1DWIp4p8bCBAgWiO+Bvi5eajwuIMAAAAASUVORK5CYII=" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">[无图]Aria2+web界面 另加OneIndex上传（可能上传不了）</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="https://q.qlogo.cn/headimg_dl?dst_uin=1833505972&amp;spec=640&amp;img_type=jpg" src="/img/suka-lazyload.gif" alt="Huntesrxy's Avatar">
+        <span>2021-05-02</span>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=[无图]Aria2+web界面 另加OneIndex上传（可能上传不了）&url=https://rbqhub.top/2021/05/02/Untitled/&pic=https://q.qlogo.cn/headimg_dl?dst_uin=1833505972&amp;spec=640&amp;img_type=jpg&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=[无图]Aria2+web界面 另加OneIndex上传（可能上传不了）&url=https://rbqhub.top/2021/05/02/Untitled/&via=Huntesrxy" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://rbqhub.top/2021/05/02/Untitled/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=https://rbqhub.top/2021/05/02/Untitled/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://rbqhub.top/2021/05/02/Untitled/&title=In Huntersxy" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=In Huntersxy&title=In Huntersxy&summary=界归之地&pics=https://q.qlogo.cn/headimg_dl?dst_uin=1833505972&amp;spec=640&amp;img_type=jpg&url=https://rbqhub.top/2021/05/02/Untitled/" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=https://rbqhub.top/2021/05/02/Untitled/&text=In Huntersxy" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAAAAAB0L9x7AAABhUlEQVR42u3aSRKDMAxEUe5/6WRLuVCrhYkjU58NZCjzFgINcHwabAcIECC2QBxisxY6/W88ztYF0RdRXfx8kmgda10QrRFj4Fzto8BzsON6IN6BGAFXnyM8iHchrhaIEtXPAhPEckSUaLKblcI9lkVBLEeognRm/1i1DWIpwmluomao0iRNdeUgliJUIKngjZKXsx6I3ohK8+s2PCqgw5sViFaIqyLFaX6ywkZ9D6IvIgpE1cBkhW9WNIPojagEmjqJ0zSnCQxEK4RKaHLQYSS8chYF0QKhEphz81KJsHx1gGiDUMdRQrobxCD6IrKCpToYcwaxIPZAuAM056GLAwPRG+EUrurm4xTF1vQORDtEJWG5zY6dwEC0Q7gvX1SLWzloAdEScSdxqcCL/gtiH4T1YN1scsrNM4i2CPfFHqd5zoqZ6beLQCxDuE1tJVGlg3cQ2yLcwVqlaQaxN8INTOf3n18dIB5DqCGHMzR3BiYg9kHMDssz5HS1DWIp4p8bCBAgWiO+Bvi5eajwuIMAAAAASUVORK5CYII=" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%86%99%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%EF%BC%9F"><span class="post-toc-number">1.</span> <span class="post-toc-text">我为什么会写这篇文章？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">准备工作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Arir2-%E4%B8%8E-%E5%8F%AF%E8%A7%86%E5%8C%96%E7%95%8C%E9%9D%A2%E5%AE%89%E8%A3%85-%E2%80%93CCAA"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Arir2 与 可视化界面安装 –CCAA</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%BA%E4%BA%86%E6%96%B9%E4%BE%BF%E6%93%8D%E4%BD%9C%E8%AF%B7%E5%B0%86Arir2%E7%9A%84%E4%B8%8B%E8%BD%BD%E8%B7%AF%E5%BE%84%E8%AE%BE%E7%BD%AE%E4%B8%BA-home-Download"><span class="post-toc-number"></span> <span class="post-toc-text">为了方便操作请将Arir2的下载路径设置为&#x2F;home&#x2F;Download</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#PS-%E5%A6%82%E6%9E%9C%E4%BD%A0%E6%83%B3%E9%85%8D%E7%BD%AE%E4%B8%80%E4%B8%8BArir2%E7%9A%84%E8%AF%9D%EF%BC%8C%E5%8F%AF%E4%BB%A5%E7%94%A8%E4%BB%A5%E4%B8%8B%E8%84%9A%E6%9C%AC%E8%BF%9B%E8%A1%8C"><span class="post-toc-number">0.0.1.</span> <span class="post-toc-text">PS.如果你想配置一下Arir2的话，可以用以下脚本进行</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#OneIndex"><span class="post-toc-number">1.</span> <span class="post-toc-text">OneIndex</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%8A%E4%BC%A0"><span class="post-toc-number">2.</span> <span class="post-toc-text">上传</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <h2 id="我为什么会写这篇文章？"><a href="#我为什么会写这篇文章？" class="headerlink" title="我为什么会写这篇文章？"></a>我为什么会写这篇文章？</h2><p>昨天晚上折腾了一个晚上的离线下载并上传，但是对于我这种小白很不友好,一键脚本都是debian 6,7的，没有关于Centos的，和网络的教程一步步操作，也会败在一些细节上面，但是，最后我还是做好了！为了方便广大网友，我决定整理一下！<br>不要和我说撞某人的车什么的emm，我根本就没有找到这一方面的文章。<br>当然我希望有大佬可以做出一键的脚本。</p>
+<p>** <em>前排提醒，以下文章的操作不具有简洁性，有的操作可能与之前的冲突！我只能保证你可以用</em>**</p>
+<hr>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ol>
+<li>首先先提前准备好一个微软账户（用不上离线上传的可以忽略）</li>
+<li>登录你的SSH，准备好粘贴之后的代码们吧！</li>
+</ol>
+<h3 id="Arir2-与-可视化界面安装-–CCAA"><a href="#Arir2-与-可视化界面安装-–CCAA" class="headerlink" title="Arir2 与 可视化界面安装 –CCAA"></a>Arir2 与 可视化界面安装 –CCAA</h3><p>指令自搜索引擎搜索后在[[pengjy.com]][1]获取</p>
+<pre><code>yum -y install wget unzip curl
+wget https://github.com/helloxz/ccaa/archive/master.zip
+unzip master.zip &amp;&amp; cd ccaa-master &amp;&amp; sh ccaa.sh
+</code></pre>
+<hr>
+<h1 id="为了方便操作请将Arir2的下载路径设置为-home-Download"><a href="#为了方便操作请将Arir2的下载路径设置为-home-Download" class="headerlink" title="为了方便操作请将Arir2的下载路径设置为/home/Download"></a>为了方便操作请将Arir2的下载路径设置为/home/Download</h1><p>这个时候安装完毕就已经配置好了。</p>
+<hr>
+<h4 id="PS-如果你想配置一下Arir2的话，可以用以下脚本进行"><a href="#PS-如果你想配置一下Arir2的话，可以用以下脚本进行" class="headerlink" title="PS.如果你想配置一下Arir2的话，可以用以下脚本进行"></a>PS.如果你想配置一下Arir2的话，可以用以下脚本进行</h4><pre><code>wget -N --no-check-certificate https://lolico.moe/files/scripts/aria/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; bash aria2.sh
+</code></pre>
+<p>之后如果还想打开这个脚本可以输入 <code>./aria2.sh</code><br>建议通过这个脚本再安装一次Arir2避免错误。</p>
+<hr>
+<p>这个时候，已经配置好了下载部分，如果你不需要上传的微软网盘，你可以关闭网站了。</p>
+<h2 id="OneIndex"><a href="#OneIndex" class="headerlink" title="OneIndex"></a>OneIndex</h2><p>此部分来源：借一程山水伴你年少<br>链接：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/77ff278a286b">https://www.jianshu.com/p/77ff278a286b</a><br>來源：简书<br>为方便操作请安装宝塔面板</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install.sh &amp;&amp; sh install.sh</span><br></pre></td></tr></table></figure>
+<p>以下是程序的安装，请提前准备好目录并且绑定好域名</p>
+<pre><code>yum install git -y
+#将下面的xx.com修正为根目录名称后再运转
+cd /www/wwwroot/xx.com
+git clone https://github.com/donwa/oneindex.git
+mv oneindex/* ./
+chmod 777 ./config &amp;&amp; chmod 777 ./cache
+</code></pre>
+<p>然后，再点击域名设置，增加Nginx伪动态：</p>
+<pre><code>location / &#123;if (!-f $request_filename)&#123;set $rule_0 1$rule_0;&#125;if (!-d $request_filename)&#123;set $rule_0 2$rule_0;&#125;if ($rule_0 = &quot;21&quot;)&#123;rewrite ^/(.*)$ /index.php?/$1 last;&#125;&#125;
+</code></pre>
+<p><strong>最末翻开域名举行装置和绑定OneDrive了</strong><br>默许暗码：<strong>oneindex</strong>。如其你想给域名加上https宁静拜访，能够经过域名设置配备一下SSL证明。</p>
+<h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><p>博主当然想过挂载硬盘上传，可是怎么也授权不了，所以使用OneIndex上传</p>
+<p>先在/root/.aria2文献夹新建一个上传本子，定名oneindexup.sh。<br>这边也能够应用vi号令，本人看着办</p>
+<pre><code>nano /root/.aria2/oneindexup.sh
+</code></pre>
+<p>将以下代码修正后，复制进本子：<br>    #!/bin/bash<br>    path=$3<br>    downloadpath=’/home/Download’<br>    domain=’213.59.118.111’ #这里改成你的域名</p>
+<pre><code>if [ $2 -eq 0 ]
+        then
+                exit 0
+fi
+while true; do
+filepath=$path
+path=$&#123;path%/*&#125;;
+if [ &quot;$path&quot; = &quot;$downloadpath&quot; ] &amp;&amp; [ $2 -eq 1 ]
+    then
+    php /www/wwwroot/$domain/one.php upload:file $filepath /aria2/
+    rm -rf $filepath
+    php /www/wwwroot/$domain/one.php cache:refresh
+    exit 0
+elif [ &quot;$path&quot; = &quot;$downloadpath&quot; ]
+    then
+    php /www/wwwroot/$domain/one.php upload:folder $filepath /aria2/
+    rm -rf &quot;$filepath/&quot;
+    php /www/wwwroot/$domain/one.php cache:refresh
+    exit 0
+fi
+done
+</code></pre>
+<p>然后再受权：</p>
+<pre><code>chmod +x /root/.aria2/oneindexup.sh
+
+
+
+echo &quot;on-download-complete=/root/.aria2/oneindexup.sh&quot; &gt;&gt;/root/.aria2/aria2.conf
+</code></pre>
+<p>重启Aria2</p>
+<pre><code>service aria2 restart
+</code></pre>
+<p>大功告成，回家吃饭！</p>
+
+                    </article>
+                    
+    <blockquote class="post-license">
+        <p>
+            <strong>本文作者&nbsp;:&nbsp;Huntesrxy</strong>
+            <br>
+            <strong>
+            
+                本文使用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)</a> 协议'
+            </strong>
+            <br>
+            <strong>本文链接&nbsp;:&nbsp;</strong><a href="https://rbqhub.top/2021/05/02/Untitled/">https://rbqhub.top/2021/05/02/Untitled/</a>
+        </p>
+    </blockquote>
+
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2021-05-02");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2021-05-02T10:39:00.000Z" itemprop="datePublished">2021-05-02</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2021/05/02/rjzy/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">软件资源</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2021/05/02/2021-5-2-16-53/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">庆祝一下博客复活ohhh</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="2021/05/02/Untitled/"></div>
+<script>
+(function(){
+var appid = 'cyvqYuke2';
+var conf = 'prod_0457b4944a8d31e5847d0b063ddcb3d5';
+var width = window.innerWidth || document.documentElement.clientWidth;
+if (width < 960) {
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://rbqhub.top">In Huntersxy</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="https://cdnjs.loli.net/ajax/libs/vanilla-lazyload/8.9.0/lazyload.min.js" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@2.3/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        <!-- 畅言公共 js 代码 start -->
+<script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cyvqYuke2">
+</script>
+<!-- 畅言公共 js 代码 end -->
+    
+
+
+<!-- ### Custom Footer ### -->
+
+		
+		
+    </body>
+
+</html>
+
+<!-- # 这是线条动画 # -->
+<script>!function(){function n(n,e,t){return n.getAttribute(e)||t}function e(n){return document.getElementsByTagName(n)}function t(){var t=e("script"),o=t.length,i=t[o-1];return{l:o,z:n(i,"zIndex",-1),o:n(i,"opacity",.5),c:n(i,"color","0,0,0"),n:n(i,"count",50)}}function o(){a=m.width=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth,c=m.height=window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight}function i(){r.clearRect(0,0,a,c);var n,e,t,o,m,l;s.forEach(function(i,x){for(i.x+=i.xa,i.y+=i.ya,i.xa*=i.x>a||i.x<0?-1:1,i.ya*=i.y>c||i.y<0?-1:1,r.fillRect(i.x-.5,i.y-.5,1,1),e=x+1;e<u.length;e++)n=u[e],null!==n.x&&null!==n.y&&(o=i.x-n.x,m=i.y-n.y,l=o*o+m*m,l<n.max&&(n===y&&l>=n.max/2&&(i.x-=.03*o,i.y-=.03*m),t=(n.max-l)/n.max,r.beginPath(),r.lineWidth=t/2,r.strokeStyle="rgba("+d.c+","+(t+.2)+")",r.moveTo(i.x,i.y),r.lineTo(n.x,n.y),r.stroke()))}),x(i)}var a,c,u,m=document.createElement("canvas"),d=t(),l="c_n"+d.l,r=m.getContext("2d"),x=window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||function(n){window.setTimeout(n,1e3/45)},w=Math.random,y={x:null,y:null,max:2e4};m.id=l,m.style.cssText="position:fixed;top:0;left:0;z-index:"+d.z+";opacity:"+d.o,e("body")[0].appendChild(m),o(),window.onresize=o,window.onmousemove=function(n){n=n||window.event,y.x=n.clientX,y.y=n.clientY},window.onmouseout=function(){y.x=null,y.y=null};for(var s=[],f=0;d.n>f;f++){var h=w()*a,g=w()*c,v=2*w()-1,p=2*w()-1;s.push({x:h,y:g,xa:v,ya:p,max:6e3})}u=s.concat([y]),setTimeout(function(){i()},100)}();</script>
+		
+<!-- # 这是背景 # -->
+<style>	body:before{    top: 0;    left: 0;    right: 0;    bottom: 0;    opacity: .400;    z-index: -50;    content: "";    position: fixed;    background: url(https://saas.bk-cdn.com/t/f1e16078-bb12-419d-ad3f-be967f268d40/u/f0896296-9cb3-4e7a-bfaa-44a0c8c681f0/1664613880822/05-%E6%97%A9.jpg) center/cover;}</style>			
+
+<!-- # 这是天气 # -->
+<div id="tp-weather-widget"></div><script>  (function(a,h,g,f,e,d,c,b){b=function(){d=h.createElement(g);c=h.getElementsByTagName(g)[0];d.src=e;d.charset="utf-8";d.async=1;c.parentNode.insertBefore(d,c)};a["SeniverseWeatherWidgetObject"]=f;a[f]||(a[f]=function(){(a[f].q=a[f].q||[]).push(arguments)});a[f].l=+new Date();if(a.attachEvent){a.attachEvent("onload",b)}else{a.addEventListener("load",b,false)}}(window,document,"script","SeniverseWeatherWidget","//cdn.sencdn.com/widget2/static/js/bundle.js?t="+parseInt((new Date().getTime() / 100000000).toString(),10)));  window.SeniverseWeatherWidget('show', {    flavor: "bubble",    location: "WKND5EK53SYX",    geolocation: true,    language: "zh-Hans",    unit: "c",    theme: "auto",    token: "c154a7e8-ec5d-49f8-b6a1-b1fb652e2534",    hover: "enabled",    container: "tp-weather-widget"  })</script>
+
+<!-- # 这是进度条 # -->
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
